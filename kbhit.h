@@ -5,6 +5,8 @@
 		int  _kbhit(void);
 	#endif
 #else
-	#include <stdio.h>
+	#include <cstdio>
 	#include <conio.h>
 #endif
+
+int Wait();

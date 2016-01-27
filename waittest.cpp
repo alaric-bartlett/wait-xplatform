@@ -2,6 +2,8 @@
 #include <iostream>
 using namespace std;
 
+//Function: main()
+//Purpose: Simple demonstration of the Wait() function from kbhit.cpp
 int main()
 {
 	int c;

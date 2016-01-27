@@ -11,7 +11,8 @@
  * {
  *	   c=khbit()
  * } while(!c)
- * Note that this WILL NOT be included on windows systems, which already have a khbit() function in their libraries.
+ * Note that _kbhit() and changemode() WILL NOT be included on windows systems, 
+ * which already have a khbit() function in their libraries.
  */
 #include "kbhit.h"
 

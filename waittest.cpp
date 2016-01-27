@@ -3,11 +3,11 @@
 #include <cstdio>
 using namespace std;
 
-int Wait();
-
 int main()
 {
 	int c;
+
+	cout << "Press a key: ";
 
 	c=Wait();
 
@@ -16,28 +16,3 @@ int main()
 	return(0);
 }
 
-int Wait()
-{
-	int c;
-	cout << "Press any key: ";
-
-#ifndef _WIN32
-	changemode(1);
-	while(!_kbhit())
-	{
-		c=getchar();
-		break;
-	}
-	changemode(0);
-#else
-	while(1)
-	{
-		if(_kbhit())
-		{
-			c=_getch();
-			break;
-		}
-	}
-#endif
-	return c;
-}

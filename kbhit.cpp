@@ -1,5 +1,5 @@
 /*
- * Linux implementation of the windows _khbit() function
+ * Linux implementation of the windows khbit() function
  * Taken from http://cboard.cprogramming.com/c-programming/63166-kbhit-linux.html
  * Purpose: Read input from the keyboard.
  * Usage: Use within a while() loop to search for a keypress.
@@ -9,18 +9,18 @@
  * int c;
  * do
  * {
- *	   c=_khbit()
+ *	   c=khbit()
  * } while(!c)
  * Note that this WILL NOT be included on windows systems, which already have a khbit() function in their libraries.
  */
+#include "kbhit.h"
+
 #ifndef _WIN32
 
-#include <cstdio>
 #include <termios.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/time.h>
-#include "kbhit.h"
 
 void changemode(int dir)
 {
@@ -54,3 +54,28 @@ int _kbhit(void)
 }
 
 #endif
+
+int Wait()
+{
+	int c;
+
+#ifndef _WIN32
+	changemode(1);
+	while (!_kbhit())
+	{
+		c = getchar();
+		break;
+	}
+	changemode(0);
+#else
+	while (1)
+	{
+		if (_kbhit())
+		{
+			c = _getch();
+			break;
+		}
+	}
+#endif
+	return c;
+}

@@ -10,3 +10,4 @@
 #endif
 
 int Wait();
+int Wait(const char *cData="");

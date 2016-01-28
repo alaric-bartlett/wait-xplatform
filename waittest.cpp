@@ -8,9 +8,12 @@ int main()
 {
 	int c;
 
-	cout << "Press a key: ";
+/* Version 1 */
+//	cout << "Press a key: ";
+//	c=Wait();
 
-	c=Wait();
+/* Version 2 */
+	c=Wait("Press a key:");
 
 	cout << endl << "Got: " << (char)c << endl;
 

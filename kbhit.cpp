@@ -15,6 +15,7 @@
  * which already have a khbit() function in their libraries.
  */
 #include "kbhit.h"
+#include <iostream>
 
 #ifndef _WIN32
 
@@ -97,5 +98,14 @@ int Wait()
 		}
 	}
 #endif
+	return c;
+}
+
+//Wait function with a message
+int Wait(const char *cData)
+{
+	int c = 0;
+	std::cout << cData;
+	c=Wait();
 	return c;
 }
